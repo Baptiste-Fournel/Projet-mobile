@@ -34,8 +34,11 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
     var timeLeft by remember { mutableStateOf(10) }
     var lives by remember { mutableStateOf(5) }
     var canRetry by remember { mutableStateOf(false) }
+    var quizFinished by remember { mutableStateOf(false) }
 
     LaunchedEffect(questionIndex) {
+        if (quizFinished) return@LaunchedEffect
+
         timeLeft = 10
         hintVisible = false
         selectedAnswer = -1
@@ -47,7 +50,16 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
             if (timeLeft == 5) hintVisible = true
         }
 
-        questionIndex = (questionIndex + 1).coerceAtMost(questions.size - 1)
+        if (timeLeft == 0) {
+            if (canRetry) {
+                lives--
+            } else {
+                goToNextQuestion(questions, questionIndex, score, lives, { questionIndex++ }, {
+                    quizFinished = true
+                    onFinish(score, questions.size)
+                })
+            }
+        }
     }
 
     Column(
@@ -146,18 +158,20 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
             onClick = {
                 if (selectedAnswer == questions[questionIndex].correctAnswerId) {
                     score++
-                    questionIndex = (questionIndex + 1).coerceAtMost(questions.size - 1)
+                    goToNextQuestion(questions, questionIndex, score, lives, { questionIndex++ }, {
+                        quizFinished = true
+                        onFinish(score, questions.size)
+                    })
                 } else {
                     if (lives > 1) {
                         lives--
                         canRetry = true
                     } else {
-                        questionIndex = (questionIndex + 1).coerceAtMost(questions.size - 1)
+                        goToNextQuestion(questions, questionIndex, score, lives, { questionIndex++ }, {
+                            quizFinished = true
+                            onFinish(score, questions.size)
+                        })
                     }
-                }
-
-                if (questionIndex >= questions.size - 1) {
-                    onFinish(score, questions.size)
                 }
             },
             shape = RoundedCornerShape(6.dp),
@@ -184,5 +198,20 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
             progress = (questionIndex + 1) / questions.size.toFloat(),
             color = MaterialTheme.colors.primary
         )
+    }
+}
+
+fun goToNextQuestion(
+    questions: List<com.worldline.quiz.data.dataclass.Question>,
+    questionIndex: Int,
+    score: Int,
+    lives: Int,
+    onNext: () -> Unit,
+    onFinish: () -> Unit
+) {
+    if (questionIndex < questions.size - 1) {
+        onNext()
+    } else {
+        onFinish()
     }
 }
