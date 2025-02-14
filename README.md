@@ -7,12 +7,12 @@ Elle permet aux utilisateurs de tester leurs connaissances avec des **questions 
 ---
 
 ## 🎮 Fonctionnalités
-✅ **Questions interactives** : Choisissez la bonne réponse parmi plusieurs propositions.
-✅ **Système de vies** : Vous démarrez avec 5 vies et pouvez retenter une question en cas d'erreur.
-✅ **Timer dynamique** : Chaque question doit être répondue en 10 secondes.
-✅ **Indices automatiques** : Un indice s'affiche après 5 secondes si aucune réponse n'est sélectionnée.
-✅ **Progression visible** : Une barre de progression affiche l'avancement du quiz.
-✅ **Écran des scores** : À la fin du quiz, un écran résume votre performance avec un affichage coloré.
+✅ **Questions interactives** : Choisissez la bonne réponse parmi plusieurs propositions. </br>
+✅ **Système de vies** : Vous démarrez avec 5 vies et pouvez retenter une question en cas d'erreur.</br>
+✅ **Timer dynamique** : Chaque question doit être répondue en 10 secondes.</br>
+✅ **Indices automatiques** : Un indice s'affiche après 5 secondes si aucune réponse n'est sélectionnée</br>
+✅ **Progression visible** : Une barre de progression affiche l'avancement du quiz.</br>
+✅ **Écran des scores** : À la fin du quiz, un écran résume votre performance avec un affichage coloré.</br>
 
 ---
 
