@@ -1,0 +1,76 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "label": "Quel est le langage principal utilisé pour développer des applications Android ?",
+      "correct_answer_id": 2,
+      "answers": [
+        {"id": 1, "label": "Swift"},
+        {"id": 2, "label": "Kotlin"},
+        {"id": 3, "label": "C#"},
+        {"id": 4, "label": "Ruby"}
+      ],
+      "hint": "C'est un langage moderne adopté officiellement par Google en 2017."
+    },
+    {
+      "id": 2,
+      "label": "Quel est le nom du fichier Android utilisé pour décrire les autorisations et les configurations d'une application ?",
+      "correct_answer_id": 1,
+      "answers": [
+        {"id": 1, "label": "AndroidManifest.xml"},
+        {"id": 2, "label": "Config.xml"},
+        {"id": 3, "label": "Build.gradle"},
+        {"id": 4, "label": "Settings.gradle"}
+      ],
+      "hint": "Ce fichier contient la déclaration des activités et des services de l'application."
+    },
+    {
+      "id": 3,
+      "label": "Quelle architecture est recommandée par Google pour les applications Android modernes ?",
+      "correct_answer_id": 3,
+      "answers": [
+        {"id": 1, "label": "MVC"},
+        {"id": 2, "label": "MVP"},
+        {"id": 3, "label": "MVVM"},
+        {"id": 4, "label": "Singleton"}
+      ],
+      "hint": "Elle repose sur la séparation des données et de l'interface utilisateur, en mettant l'accent sur l'observabilité."
+    },
+    {
+      "id": 4,
+      "label": "Quel composant Android est utilisé pour gérer une interface utilisateur persistante avec des états sauvegardés ?",
+      "correct_answer_id": 2,
+      "answers": [
+        {"id": 1, "label": "Activity"},
+        {"id": 2, "label": "Fragment"},
+        {"id": 3, "label": "Service"},
+        {"id": 4, "label": "BroadcastReceiver"}
+      ],
+      "hint": "Ce composant fait partie d'une activité et est réutilisable."
+    },
+    {
+      "id": 5,
+      "label": "Quel est le nom du framework utilisé pour la gestion des dépendances dans une application Android ?",
+      "correct_answer_id": 1,
+      "answers": [
+        {"id": 1, "label": "Dagger"},
+        {"id": 2, "label": "Retrofit"},
+        {"id": 3, "label": "Room"},
+        {"id": 4, "label": "Glide"}
+      ],
+      "hint": "Ce framework est souvent utilisé avec Hilt pour simplifier l'injection de dépendances."
+    },
+    {
+      "id": 6,
+      "label": "Quel est le moteur de rendu graphique utilisé par Android pour dessiner l'interface utilisateur ?",
+      "correct_answer_id": 3,
+      "answers": [
+        {"id": 1, "label": "Skia"},
+        {"id": 2, "label": "DirectX"},
+        {"id": 3, "label": "OpenGL"},
+        {"id": 4, "label": "Metal"}
+      ],
+      "hint": "C'est une API graphique largement utilisée sur de nombreuses plateformes, y compris Android."
+    }
+  ]
+}
