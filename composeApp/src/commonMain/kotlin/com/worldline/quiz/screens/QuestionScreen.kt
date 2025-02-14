@@ -57,6 +57,9 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
             } else {
                 if (canRetry) {
                     lives--
+                    if (lives <= 0) {
+                        lives = 0
+                    }
                 } else {
                     goToNextQuestion(questions, questionIndex, score, lives, { questionIndex++ }, {
                         quizFinished = true
@@ -172,6 +175,7 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
                         lives--
                         canRetry = true
                     } else {
+                        lives = 0
                         goToNextQuestion(questions, questionIndex, score, lives, { questionIndex++ }, {
                             quizFinished = true
                             onFinish(score, questions.size)
