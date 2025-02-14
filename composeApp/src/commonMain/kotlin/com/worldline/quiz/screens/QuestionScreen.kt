@@ -51,13 +51,18 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
         }
 
         if (timeLeft == 0) {
-            if (canRetry) {
-                lives--
+            if (questionIndex == questions.size - 1) {
+                quizFinished = true
+                onFinish(score, questions.size)
             } else {
-                goToNextQuestion(questions, questionIndex, score, lives, { questionIndex++ }, {
-                    quizFinished = true
-                    onFinish(score, questions.size)
-                })
+                if (canRetry) {
+                    lives--
+                } else {
+                    goToNextQuestion(questions, questionIndex, score, lives, { questionIndex++ }, {
+                        quizFinished = true
+                        onFinish(score, questions.size)
+                    })
+                }
             }
         }
     }
