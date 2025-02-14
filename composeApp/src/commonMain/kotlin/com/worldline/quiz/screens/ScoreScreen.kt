@@ -25,9 +25,9 @@ import androidx.compose.ui.unit.sp
 fun scoreScreen(score: Int, total: Int, onResetButtonPushed: () -> Unit) {
     val scorePercentage = score.toFloat() / total.toFloat()
     val backgroundColor = when {
-        scorePercentage > 0.8 -> Color(0xFF4CAF50) // Vert
-        scorePercentage > 0.5 -> Color(0xFFFFA726) // Orange
-        else -> Color(0xFFD32F2F) // Rouge
+        scorePercentage > 0.8 -> Color(0xFF4CAF50)
+        scorePercentage > 0.5 -> Color(0xFFFFA726)
+        else -> Color(0xFFD32F2F)
     }
 
     Box(

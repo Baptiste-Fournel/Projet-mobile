@@ -47,7 +47,6 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
             if (timeLeft == 5) hintVisible = true
         }
 
-        // **Quand le timer arrive à 0, passer automatiquement à la question suivante**
         questionIndex = (questionIndex + 1).coerceAtMost(questions.size - 1)
     }
 
@@ -56,7 +55,6 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // **Affichage des vies**
         Row(
             modifier = Modifier.fillMaxWidth().padding(10.dp),
             horizontalArrangement = Arrangement.Start
@@ -108,7 +106,7 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
                     fontWeight = FontWeight.Bold,
                     color = when {
                         timeLeft > 6 -> Color.Green
-                        timeLeft > 3 -> Color(0xFFFFA726) // Orange
+                        timeLeft > 3 -> Color(0xFFFFA726)
                         else -> Color.Red
                     },
                     modifier = Modifier.padding(top = 10.dp)
@@ -152,7 +150,7 @@ fun questionScreen(onFinish: (Int, Int) -> Unit) {
                 } else {
                     if (lives > 1) {
                         lives--
-                        canRetry = true // Permet de rejouer
+                        canRetry = true
                     } else {
                         questionIndex = (questionIndex + 1).coerceAtMost(questions.size - 1)
                     }
