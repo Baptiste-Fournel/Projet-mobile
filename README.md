@@ -1,21 +1,87 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop.
+# 📚 Quiz Multiplatform
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+## 🚀 Introduction
+Bienvenue dans **Quiz Multiplatform**, une application interactive développée en **Kotlin Multiplatform** avec **Jetpack Compose**. 
+Elle permet aux utilisateurs de tester leurs connaissances avec des **questions interactives**, un **système de vies**, un **timer dynamique**, et des **indices** pour aider les joueurs.
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+---
 
+## 🎮 Fonctionnalités
+✅ **Questions interactives** : Choisissez la bonne réponse parmi plusieurs propositions.
+✅ **Système de vies** : Vous démarrez avec 5 vies et pouvez retenter une question en cas d'erreur.
+✅ **Timer dynamique** : Chaque question doit être répondue en 10 secondes.
+✅ **Indices automatiques** : Un indice s'affiche après 5 secondes si aucune réponse n'est sélectionnée.
+✅ **Progression visible** : Une barre de progression affiche l'avancement du quiz.
+✅ **Écran des scores** : À la fin du quiz, un écran résume votre performance avec un affichage coloré.
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html),
-[Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform/#compose-multiplatform),
-[Kotlin/Wasm](https://kotl.in/wasm/)…
+---
 
-We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
-If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
+## 📸 Aperçu de l'interface
+🎯 **Écran d'accueil** :
+- Présentation du quiz.
+- Bouton de démarrage du jeu.
 
-You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+📝 **Écran de question** :
+- Affichage de la question actuelle.
+- Choix des réponses interactifs.
+- Timer visible avec changement de couleur selon le temps restant.
+- Affichage des vies sous forme d'icônes ❤️.
+- Barre de progression.
+
+🏆 **Écran des scores** :
+- Affichage du score final.
+- Progression du score sous forme de barre.
+- Bouton pour rejouer le quiz.
+
+---
+
+## 🛠️ Technologies utilisées
+- **Kotlin Multiplatform (KMP)** : Développement multiplateforme Android, iOS et Desktop.
+- **Jetpack Compose** : UI réactive et moderne.
+- **Ktor** : Requêtes HTTP et gestion des données distantes.
+- **Serialization Kotlinx** : Gestion des fichiers JSON pour stocker les questions.
+- **State Management** : `remember`, `mutableStateOf` pour la gestion d'état.
+
+---
+
+## 🏗️ Structure du projet
+📂 **src/commonMain/kotlin/com/worldline/quiz/**
+- `data/` → Gestion des données et questions du quiz.
+- `screens/` → Composants UI du quiz.
+- `QuizViewModel.kt` → Gestion des états du quiz.
+- 
+---
+
+## 📝 Fonctionnement détaillé
+### ⏳ **Gestion du Timer**
+Chaque question démarre avec **10 secondes**.
+- Si `timeLeft == 5`, **l'indice** de la question est affiché.
+- Si `timeLeft == 0`, on passe automatiquement à la **question suivante**.
+- Si `timeLeft == 0` sur **la dernière question**, on affiche l'**écran des scores**.
+
+### ❤️ **Gestion des vies**
+- Le joueur commence avec **5 vies**.
+- Si une réponse est incorrecte, il **perd une vie** et peut retenter la question.
+- Si **toutes les vies sont perdues**, il passe automatiquement à la **question suivante**.
+
+### 🏆 **Affichage des scores**
+À la fin du quiz, le score est affiché avec une **couleur dynamique** :
+- 🟢 **Vert** si score > 80%
+- 🟠 **Orange** si score entre 50% et 80%
+- 🔴 **Rouge** si score < 50%
+
+---
+
+## 🔧 Installation et exécution
+1️⃣ **Cloner le projet** :
+```bash
+git clone https://github.com/worldline/quiz-multiplatform.git
+cd quiz-multiplatform
+```
+
+2️⃣ **Ouvrir avec Android Studio**
+3️⃣ **Exécuter sur l'émulateur ou un appareil réel**
+
+---
+
+📌 **Merci d'utiliser Quiz Multiplatform ! Bonne chance et amusez-vous bien ! 🎉**
